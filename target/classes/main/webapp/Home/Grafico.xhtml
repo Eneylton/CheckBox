@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:p="http://primefaces.org/ui">
+
+<h:head>
+	<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+	<title><ui:insert name="titulo">Pesquisa Interna - Detran Maranhão</ui:insert></title>
+
+	<meta name="viewport" content="width=device-width" />
+	<h:outputStylesheet library="css" name="menu.css" />
+	<h:outputStylesheet library="css" name="Site.css" />
+	<h:outputStylesheet library="css" name="Conteiner.css" />
+
+	<h:outputScript library="js" name="conteiner.js" />
+	<h:outputScript>
+                        function chartExtender() {        
+                         // this = chart widget instance        
+                         // this.cfg = options      
+                         this.cfg.seriesDefaults.rendererOptions.varyBarColor = true;
+                        }
+                        </h:outputScript>
+</h:head>
+
+<h:body>
+	<h:form>
+
+
+		<h1>Estatística - Pesquisa Interna - Estatística</h1>
+
+			
+
+				<p:tab title="Total por Questão">
+					<h:panelGrid columns="2" cellpadding="10">
+
+						<p:chart type="bar" model="#{totalInscritos.barModel}"
+							style="width:1300px;height:400px" />
+					</h:panelGrid>
+				</p:tab>
+
+		
+		
+
+	</h:form>
+</h:body>
+
+</html>

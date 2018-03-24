@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:p="http://primefaces.org/ui">
+
+<h:head>
+	<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+	<title>Pesquisa Interna</title>
+
+</h:head>
+
+<h:body>
+	<h:form id="form">
+		<p:panel header="#{pesquisaBean.tituloGrupo}" id="objetivas"
+			rendered="#{pesquisaBean.respostasObjetivas}">
+			<h:panelGrid columns="1" style="margin-bottom:10px" cellpadding="5">
+				<p:outputLabel
+					value="INDIQUE O SEU GRAU DE SATISFAÃÃO COM RELAÃÃO AOS ITENS ABAIXO (Sendo 1 para muito insatisfeito e 5 para muito satisfeito)"
+					rendered="#{pesquisaBean.grupo2}" />
+				<p:outputLabel for="resposta" value="#{pesquisaBean.questao.questao}" />
+				
+				
+				
+				<p:selectOneRadio value="#{pesquisaBean.idRespostaSelect}" 
+					rendered="#{pesquisaBean.renderedRadio}" 
+					layout="grid" columns="1" id="resposta" required="true"
+					requiredMessage="Resposta Ã© obrigatÃ³ria">
+					<f:selectItems value="#{pesquisaBean.respostas}" var="resposta"
+						itemValue="#{resposta.idResposta}"
+						itemLabel="#{resposta.resposta}" />
+				</p:selectOneRadio>
+				
+				
+				
+				<p:selectManyCheckbox id="respostaCheck" value="#{pesquisaBean.idRespostasSelected}" 
+					rendered="#{pesquisaBean.renderedCheck}" 
+					layout="grid" columns="1">
+        			<f:selectItems value="#{pesquisaBean.respostas}" var="resposta"
+						itemValue="#{resposta.idResposta}"
+						itemLabel="#{resposta.resposta}" />
+    			</p:selectManyCheckbox>
+    
+				<p:commandButton value="Proxima questão"
+					action="#{pesquisaBean.registraResposta}" ajax="false"
+					process="@form" />
+			</h:panelGrid>
+		</p:panel>
+
+		<p:panel header="#{pesquisaBean.tituloGrupo}" id="subjetivas"
+			rendered="#{pesquisaBean.respostasSubjetivas}">
+			<h:panelGrid columns="1" style="margin-bottom:10px" cellpadding="5">
+				<p:outputLabel for="resposta"
+					value="#{pesquisaBean.questao.questao}" />
+				<p:inputTextarea rows="10" cols="100"
+					value="#{pesquisaBean.aberta.resposta}" />
+				<p:commandButton value="Encerrar Pesquisa"
+					action="#{pesquisaBean.registraResposta}" ajax="false" />
+			</h:panelGrid>
+		</p:panel>
+
+		<p:panel header="#{pesquisaBean.tituloGrupo}" id="fim"
+			rendered="#{pesquisaBean.fim}">
+			<p>Pesquisa Encerrada. Obrigado.</p>
+		</p:panel>
+		
+		<p:panel header="#{pesquisaBean.tituloGrupo}" id="semUsuario"
+			rendered="#{pesquisaBean.semUsuario}">
+			<p>Use o link enviado para o seu e-mail.</p>
+		</p:panel>
+	</h:form>
+</h:body>
+
+</html>

@@ -1,0 +1,415 @@
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://xmlns.jcp.org/jsf/html"
+	xmlns:f="http://xmlns.jcp.org/jsf/core"
+	xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+	xmlns:p="http://primefaces.org/ui"
+	template="/WEB-INF/template/Layout.xhtml">
+
+	<ui:define name="content">
+		<h1 class="aw-page-title">Pesquisa Interna - Estatística</h1>
+
+		<h:form id="frm">
+			<p:toolbar>
+				<p:toolbarGroup>
+					<p:commandButton value="Salvar" action="#{clientesManager.salvar}"
+						process="tabView @this" update="@form" />
+				</p:toolbarGroup>
+				<p:toolbarGroup align="right">
+
+					<p:commandButton value="Print" type="button" icon="ui-icon-print">
+						<p:printer target="frm:tabView:qst1" />
+					</p:commandButton>
+
+
+					<p:commandButton value="Novo"
+						action="#{clientesManager.novoCliente}" process="@this"
+						update="@form" />
+					<p:button value="Pesquisa" />
+				</p:toolbarGroup>
+			</p:toolbar>
+
+			<p:messages autoUpdate="false" />
+
+			<div class="ui-fluid">
+				<p:tabView style="margin-top: 10px" id="tabView">
+					<p:tab title="1º Questão" id="qst1">
+						<p:panelGrid columns="4" layout="grid" id="panelgride"
+							columnClasses="ui-grid-col-2, ui-grid-col-4, ui-grid-col-2, ui-grid-col-4"
+							styleClass="panelgrid-noborder">
+
+							<p:tab title="" id="tb01">
+								<h:panelGrid columns="2" cellpadding="10">
+
+									<p:chart type="bar" model="#{totalInscritos.barModel}"
+										id="bar1" style="width:600px;height:400px" />
+								</h:panelGrid>
+							</p:tab>
+
+						</p:panelGrid>
+					</p:tab>
+
+					<p:tab title="2º Questão">
+
+						<p:panelGrid columns="4" layout="grid"
+							columnClasses="ui-grid-col-2, ui-grid-col-4, ui-grid-col-2, ui-grid-col-4"
+							styleClass="panelgrid-noborder">
+
+
+							<p:tab title="">
+								<h:panelGrid columns="2" cellpadding="10">
+
+									<p:chart type="pie" model="#{totalInscritos.pieModelSexo}"
+										style="width:400px;height:300px" />
+								</h:panelGrid>
+							</p:tab>
+
+
+						</p:panelGrid>
+
+
+					</p:tab>
+
+					<p:tab title="3º Questão">
+
+						<p:panelGrid columns="4" layout="grid"
+							columnClasses="ui-grid-col-2, ui-grid-col-4, ui-grid-col-2, ui-grid-col-4"
+							styleClass="panelgrid-noborder">
+
+
+							<p:tab title="">
+								<h:panelGrid columns="2" cellpadding="10">
+
+									<p:chart type="bar" model="#{totalInscritos.barModel2}"
+										style="width:600px;height:400px" />
+								</h:panelGrid>
+							</p:tab>
+
+
+						</p:panelGrid>
+
+					</p:tab>
+
+					<p:tab title="4º Questão">
+
+						<p:panelGrid columns="4" layout="grid"
+							columnClasses="ui-grid-col-2, ui-grid-col-4, ui-grid-col-2, ui-grid-col-4"
+							styleClass="panelgrid-noborder">
+
+
+							<p:tab title="">
+								<h:panelGrid columns="2" cellpadding="10">
+
+									<p:chart type="bar" model="#{totalInscritos.barModel4}"
+										style="width:600px;height:400px" />
+								</h:panelGrid>
+							</p:tab>
+
+
+						</p:panelGrid>
+
+
+					</p:tab>
+
+					<p:tab title="5º Questão">
+
+						<p:panelGrid columns="4" layout="grid"
+							columnClasses="ui-grid-col-2, ui-grid-col-4, ui-grid-col-2, ui-grid-col-4"
+							styleClass="panelgrid-noborder">
+
+
+							<p:tab title="">
+								<h:panelGrid columns="2" cellpadding="10">
+
+									<p:chart type="bar" model="#{totalInscritos.barModel5}"
+										style="width:600px;height:400px" />
+								</h:panelGrid>
+							</p:tab>
+
+
+						</p:panelGrid>
+
+
+					</p:tab>
+
+					<p:tab title="6º Questão">
+
+						<p:panelGrid columns="4" layout="grid"
+							columnClasses="ui-grid-col-2, ui-grid-col-4, ui-grid-col-2, ui-grid-col-4"
+							styleClass="panelgrid-noborder">
+
+
+							<p:tab title="">
+								<h:panelGrid columns="2" cellpadding="10">
+
+									<p:chart type="bar" model="#{totalInscritos.barModel6}"
+										style="width:900px;height:400px" />
+								</h:panelGrid>
+							</p:tab>
+
+
+						</p:panelGrid>
+
+
+					</p:tab>
+
+					<p:tab title="7º Questão">
+						<p:panelGrid columns="4" layout="grid"
+							columnClasses="ui-grid-col-2, ui-grid-col-4, ui-grid-col-2, ui-grid-col-4"
+							styleClass="panelgrid-noborder">
+
+
+							<p:tab title="">
+								<h:panelGrid columns="2" cellpadding="10">
+
+									<p:chart type="bar" model="#{totalInscritos.barModel7}"
+										style="width:400px;height:400px" />
+								</h:panelGrid>
+							</p:tab>
+
+
+						</p:panelGrid>
+
+					</p:tab>
+
+					<p:tab title="8º Questão">
+						<p:panelGrid columns="4" layout="grid"
+							columnClasses="ui-grid-col-2, ui-grid-col-4, ui-grid-col-2, ui-grid-col-4"
+							styleClass="panelgrid-noborder">
+
+
+							<p:tab title="">
+								<h:panelGrid columns="2" cellpadding="10">
+
+									<p:chart type="bar" model="#{totalInscritos.barModel8}"
+										style="width:400px;height:400px" />
+								</h:panelGrid>
+							</p:tab>
+
+
+						</p:panelGrid>
+
+					</p:tab>
+
+					<p:tab title="9º Questão">
+
+						<p:panelGrid columns="4" layout="grid"
+							columnClasses="ui-grid-col-2, ui-grid-col-4, ui-grid-col-2, ui-grid-col-4"
+							styleClass="panelgrid-noborder">
+
+
+							<p:tab title="">
+								<h:panelGrid columns="2" cellpadding="10">
+
+									<p:chart type="bar" model="#{totalInscritos.barModel9}"
+										style="width:400px;height:400px" />
+								</h:panelGrid>
+							</p:tab>
+
+
+						</p:panelGrid>
+
+					</p:tab>
+
+					<p:tab title="10º Questão">
+
+						<p:panelGrid columns="4" layout="grid"
+							columnClasses="ui-grid-col-2, ui-grid-col-4, ui-grid-col-2, ui-grid-col-4"
+							styleClass="panelgrid-noborder">
+
+
+							<p:tab title="">
+								<h:panelGrid columns="2" cellpadding="10">
+
+									<p:chart type="bar" model="#{totalInscritos.barModel10}"
+										style="width:400px;height:400px" />
+								</h:panelGrid>
+							</p:tab>
+
+
+						</p:panelGrid>
+
+					</p:tab>
+
+					<p:tab title="11º Questão">
+						<p:panelGrid columns="4" layout="grid"
+							columnClasses="ui-grid-col-2, ui-grid-col-4, ui-grid-col-2, ui-grid-col-4"
+							styleClass="panelgrid-noborder">
+
+
+							<p:tab title="">
+								<h:panelGrid columns="2" cellpadding="10">
+
+									<p:chart type="bar" model="#{totalInscritos.barModel11}"
+										style="width:400px;height:400px" />
+								</h:panelGrid>
+							</p:tab>
+
+	</p:panelGrid>
+							<p:panelGrid columns="4" layout="grid"
+								columnClasses="ui-grid-col-2, ui-grid-col-4, ui-grid-col-2, ui-grid-col-4"
+								styleClass="panelgrid-noborder">
+
+
+								<p:tab title="">
+									<p:dataTable var="bar" value="#{totalInscritos.questao11}">
+										<p:column headerText="Total">
+											<h:outputText value="#{bar.total}" />
+										</p:column>
+										
+										<p:column headerText="Questão">
+											<h:outputText value="#{bar.Questao}" />
+										</p:column>
+
+									</p:dataTable>
+								</p:tab>
+
+
+							</p:panelGrid>
+
+
+
+
+					
+					</p:tab>
+
+					<p:tab title="12º Questão">
+						<p:panelGrid columns="4" layout="grid"
+							columnClasses="ui-grid-col-2, ui-grid-col-4, ui-grid-col-2, ui-grid-col-4"
+							styleClass="panelgrid-noborder">
+
+
+							<p:tab title="">
+								<h:panelGrid columns="2" cellpadding="10">
+
+									<p:chart type="bar" model="#{totalInscritos.barModel12}"
+										style="width:400px;height:400px" />
+								</h:panelGrid>
+							</p:tab>
+
+
+						</p:panelGrid>
+
+					</p:tab>
+
+					<p:tab title="13º Questão">
+
+						<p:panelGrid columns="4" layout="grid"
+							columnClasses="ui-grid-col-2, ui-grid-col-4, ui-grid-col-2, ui-grid-col-4"
+							styleClass="panelgrid-noborder">
+
+
+							<p:tab title="">
+								<h:panelGrid columns="2" cellpadding="10">
+
+									<p:chart type="bar" model="#{totalInscritos.barModel13}"
+										style="width:400px;height:400px" />
+								</h:panelGrid>
+							</p:tab>
+
+
+						</p:panelGrid>
+
+					</p:tab>
+
+					<p:tab title="14º Questão">
+						<p:panelGrid columns="4" layout="grid"
+							columnClasses="ui-grid-col-2, ui-grid-col-4, ui-grid-col-2, ui-grid-col-4"
+							styleClass="panelgrid-noborder">
+
+
+							<p:tab title="">
+								<h:panelGrid columns="2" cellpadding="10">
+
+									<p:chart type="bar" model="#{totalInscritos.barModel13}"
+										style="width:400px;height:400px" />
+								</h:panelGrid>
+							</p:tab>
+
+
+						</p:panelGrid>
+					</p:tab>
+
+					<p:tab title="15º Questão">
+						<p:panelGrid columns="4" layout="grid"
+							columnClasses="ui-grid-col-2, ui-grid-col-4, ui-grid-col-2, ui-grid-col-4"
+							styleClass="panelgrid-noborder">
+
+
+							<p:tab title="">
+								<h:panelGrid columns="2" cellpadding="10">
+
+									<p:chart type="bar" model="#{totalInscritos.barModel15}"
+										style="width:400px;height:400px" />
+								</h:panelGrid>
+							</p:tab>
+
+
+						</p:panelGrid>
+
+					</p:tab>
+
+					<p:tab title="16º Questão">
+						<p:panelGrid columns="4" layout="grid"
+							columnClasses="ui-grid-col-2, ui-grid-col-4, ui-grid-col-2, ui-grid-col-4"
+							styleClass="panelgrid-noborder">
+
+
+							<p:tab title="">
+								<h:panelGrid columns="2" cellpadding="10">
+
+									<p:chart type="bar" model="#{totalInscritos.barModel16}"
+										style="width:400px;height:400px" />
+								</h:panelGrid>
+							</p:tab>
+
+
+						</p:panelGrid>
+
+					</p:tab>
+
+					<p:tab title="17º Questão">
+						<p:panelGrid columns="4" layout="grid"
+							columnClasses="ui-grid-col-2, ui-grid-col-4, ui-grid-col-2, ui-grid-col-4"
+							styleClass="panelgrid-noborder">
+
+
+							<p:tab title="">
+								<h:panelGrid columns="2" cellpadding="10">
+
+									<p:chart type="bar" model="#{totalInscritos.barModel17}"
+										style="width:400px;height:400px" />
+								</h:panelGrid>
+							</p:tab>
+
+
+						</p:panelGrid>
+
+					</p:tab>
+
+					<p:tab title="18º Questão">
+						<p:panelGrid columns="4" layout="grid"
+							columnClasses="ui-grid-col-2, ui-grid-col-4, ui-grid-col-2, ui-grid-col-4"
+							styleClass="panelgrid-noborder">
+
+
+							<p:tab title="">
+								<h:panelGrid columns="2" cellpadding="10">
+
+									<p:chart type="bar" model="#{totalInscritos.barModel17}"
+										style="width:400px;height:400px" />
+								</h:panelGrid>
+							</p:tab>
+
+
+						</p:panelGrid>
+
+					</p:tab>
+				</p:tabView>
+			</div>
+
+
+
+		</h:form>
+	</ui:define>
+
+</ui:composition>

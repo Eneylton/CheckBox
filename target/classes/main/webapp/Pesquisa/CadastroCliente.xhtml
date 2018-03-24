@@ -1,0 +1,64 @@
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://xmlns.jcp.org/jsf/html"
+	xmlns:f="http://xmlns.jcp.org/jsf/core"
+	xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+	xmlns:p="http://primefaces.org/ui"
+	template="/WEB-INF/template/Layout.xhtml">
+
+	<ui:define name="content">
+		<h1 class="aw-page-title">Pesquisa Interna</h1>
+
+		<h:form id="frm">
+			<p:toolbar>
+				<p:toolbarGroup>
+					<p:commandButton value="Salvar" action="#{clientesManager.salvar}"
+						process="tabView @this" update="@form" />
+				</p:toolbarGroup>
+				<p:toolbarGroup align="right">
+					<p:commandButton value="Novo"
+						action="#{clientesManager.novoCliente}" process="@this"
+						update="@form" />
+					<p:button value="Pesquisa" outcome="PesquisaClientes" />
+				</p:toolbarGroup>
+			</p:toolbar>
+
+			<p:messages autoUpdate="false" />
+
+			<div class="ui-fluid">
+				<p:tabView style="margin-top: 10px" id="tabView">
+					<p:tab title="1º Questão">
+						<p:panelGrid columns="4" layout="grid"
+							columnClasses="ui-grid-col-2, ui-grid-col-4, ui-grid-col-2, ui-grid-col-4"
+							styleClass="panelgrid-noborder">
+
+
+							<p:tab title="">
+								<h:panelGrid columns="2" cellpadding="10">
+
+									<p:chart type="bar" model="#{totalInscritos.barModel}"
+										style="width:1100px;height:400px" />
+								</h:panelGrid>
+							</p:tab>
+
+
+						</p:panelGrid>
+					</p:tab>
+
+					<p:tab title="2º Questão">
+					
+					
+						
+					</p:tab>
+
+					<p:tab title="3º Questão">
+						
+					</p:tab>
+				</p:tabView>
+			</div>
+
+			
+
+		</h:form>
+	</ui:define>
+
+</ui:composition>

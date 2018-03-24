@@ -1,0 +1,94 @@
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://xmlns.jcp.org/jsf/html"
+	xmlns:f="http://xmlns.jcp.org/jsf/core"
+	xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+	xmlns:p="http://primefaces.org/ui"
+	template="/WEB-INF/template/Layout.xhtml">
+
+	<ui:define name="content">
+		<h1 class="aw-page-title">
+			<i class="fa  fa-bar-chart"></i> Pesquisa Interna
+		</h1>
+
+
+		<p:separator style="margin:10px 0px;" />
+
+
+		<h:selectOneMenu style="width:250px; padding:5px;"
+			onchange="window.location=this.options[this.selectedIndex].value">
+
+			<f:selectItem itemLabel="Selecione a questão desejada..." />
+
+			<f:selectItem
+				itemValue="http://localhost:9090/SistemaPesquisaInterna/Home/Relatorio01.xhtml"
+				itemLabel="1 - Questão" />
+			<f:selectItem
+				itemValue="http://localhost:9090/SistemaPesquisaInterna/Home/Relatorio02.xhtml"
+				itemLabel="2 - Questão" />
+
+			<f:selectItem
+				itemValue="http://localhost:9090/SistemaPesquisaInterna/Home/Relatorio03.xhtml"
+				itemLabel="3 - Questão" />
+
+			<f:selectItem
+				itemValue="http://localhost:9090/SistemaPesquisaInterna/Home/Relatorio04.xhtml"
+				itemLabel="4 - Questão" />
+
+			<f:selectItem
+				itemValue="http://localhost:9090/SistemaPesquisaInterna/Home/Relatorio05.xhtml"
+				itemLabel="5 - Questão" />
+
+			<f:selectItem
+				itemValue="http://localhost:9090/SistemaPesquisaInterna/Home/Relatorio06.xhtml"
+				itemLabel="6 - Questão" />
+
+			<f:selectItem
+				itemValue="http://localhost:9090/SistemaPesquisaInterna/Home/Relatorio07.xhtml"
+				itemLabel="7 - Questão" />
+
+		</h:selectOneMenu>
+
+
+		<p />
+		<p:spacer style="margin:5px 0px;" />
+
+		<h:form id="frm">
+
+			<p:panel id="basic" header="7º) Imagem da organização."
+				footer="Gráfico Estatistico:" style="margin-bottom:20px">
+				<h:panelGrid columns="2" cellpadding="10">
+					<div class="ui-fluid">
+
+						<p:dataTable var="rel" value="#{relatorioBean.listaResposta07}">
+
+							<p:column headerText="Resposta">
+								<h:outputText value="#{rel.resposta}" />
+							</p:column>
+
+
+							<p:column headerText="Total"
+								style="width:50px; text-align:center;">
+								<h:outputText value="#{rel.total}" />
+							</p:column>
+
+
+						</p:dataTable>
+
+					</div>
+				</h:panelGrid>
+			</p:panel>
+
+
+
+			<h:panelGrid columns="2" cellpadding="10">
+
+				<p:chart type="bar" model="#{totalInscritos.barModel7}"
+					style="width:400px;height:400px" />
+
+			</h:panelGrid>
+
+
+		</h:form>
+	</ui:define>
+
+</ui:composition>
